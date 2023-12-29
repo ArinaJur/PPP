@@ -21,6 +21,7 @@ abstract class BaseTest {
     private static final String ENV_BROWSER_OPTIONS = "BROWSER_OPTIONS";
     private int width;
     private int height;
+    private String baseURL;
 
 
     @BeforeSuite
@@ -46,6 +47,7 @@ abstract class BaseTest {
 
         width = Integer.parseInt(properties.getProperty("width"));
         height = Integer.parseInt(properties.getProperty("height"));
+        baseURL = properties.getProperty("base_url");
     }
 
     @BeforeMethod
@@ -59,7 +61,7 @@ abstract class BaseTest {
         );
         page = context.newPage();
 
-        page.navigate(properties.getProperty("base_url"));
+        page.navigate(baseURL);
         login();
     }
 
@@ -135,5 +137,9 @@ abstract class BaseTest {
 
     public Playwright getPlaywright() {
         return playwright;
+    }
+
+    public String getBaseUrl() {
+        return baseURL;
     }
 }

@@ -13,20 +13,20 @@ public class HomeTest extends BaseTest {
     @Test
     public void testLoginNavigation() {
 
-        assertThat(getPage()).hasURL("https://study.traineracademy.org/home");
+        assertThat(getPage()).hasURL(getBaseUrl() + "/home");
         assertThat(getPage()).hasTitle("Trainer Academy");
     }
 
     @DataProvider
     public Object[][] sideMenuItems() {
         return new Object[][]{
-                {"Home", "https://study.traineracademy.org/home"},
-                {"Study guide", "https://study.traineracademy.org/study-guide"},
-                {"Tests", "https://study.traineracademy.org/test-list"},
-                {"Flashcards", "https://study.traineracademy.org/flashcard-packs"},
-                {"Mnemonic cards", "https://study.traineracademy.org/mnemoniccard-list"},
-                {"Performance", "https://study.traineracademy.org/performance"},
-                {"Profile", "https://study.traineracademy.org/profile"}
+                {"Home", getBaseUrl() + "/home"},
+                {"Study guide", getBaseUrl() + "/study-guide"},
+                {"Tests", getBaseUrl() + "/test-list"},
+                {"Flashcards", getBaseUrl() + "/flashcard-packs"},
+                {"Mnemonic cards", getBaseUrl() + "/mnemoniccard-list"},
+                {"Performance", getBaseUrl() + "/performance"},
+                {"Profile", getBaseUrl() + "/profile"}
         };
     }
 
